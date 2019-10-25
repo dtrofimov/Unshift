@@ -15,8 +15,8 @@ protocol Forecast {
 
     var id: Id { get }
 
-    /// An optional forecast name.
-    var name: String? { get }
+    /// An optional forecast title.
+    var title: String? { get }
 
     /// A description of the estimated event, formal enough to verify the outcome.
     var eventDescription: String { get }

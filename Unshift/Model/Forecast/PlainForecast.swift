@@ -10,7 +10,7 @@ import Foundation
 
 struct PlainForecast: Forecast, Equatable, Hashable {
     var id: Id
-    var name: String?
+    var title: String?
     var eventDescription: String
     var probabilityEstimate: Double
     var isEventDesired: Bool
@@ -24,7 +24,7 @@ extension PlainForecast {
     init(forecast: Forecast) {
         let orig = forecast
         self = PlainForecast(id: orig.id,
-                             name: orig.name,
+                             title: orig.title,
                              eventDescription: orig.eventDescription,
                              probabilityEstimate: orig.probabilityEstimate,
                              isEventDesired: orig.isEventDesired,

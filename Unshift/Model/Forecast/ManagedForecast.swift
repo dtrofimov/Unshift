@@ -9,13 +9,11 @@
 import Foundation
 import CoreData
 
-final class ManagedForecast: NSManagedObject, Forecast {
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<ManagedForecast> {
-        return NSFetchRequest<ManagedForecast>(entityName: "Forecast")
-    }
+final class ManagedForecast: NSManagedObject, Forecast, ManagedObjectType {
+    static let entityName: String = "Forecast"
 
     @NSManaged public var id: Id
-    @NSManaged public var name: String?
+    @NSManaged public var title: String?
     @NSManaged public var eventDescription: String
     @NSManaged public var probabilityEstimate: Double
     @NSManaged public var isEventDesired: Bool
@@ -27,4 +25,18 @@ final class ManagedForecast: NSManagedObject, Forecast {
         set { outcomeNum = newValue.map { NSNumber(value: $0 )} }
     }
     @NSManaged public var verificationDate: Date?
+}
+
+extension ManagedForecast {
+    func clone(from origin: Forecast) {
+        self.id = origin.id
+        self.title = origin.title
+        self.eventDescription = origin.eventDescription
+        self.probabilityEstimate = origin.probabilityEstimate
+        self.isEventDesired = origin.isEventDesired
+        self.creationDate = origin.creationDate
+        self.deadline = origin.deadline
+        self.outcome = origin.outcome
+        self.verificationDate = origin.verificationDate
+    }
 }

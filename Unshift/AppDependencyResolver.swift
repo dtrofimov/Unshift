@@ -10,6 +10,7 @@ import UIKit
 
 class AppDependencyResolver {
     private(set) var storage: Storage!
+    private(set) lazy var forecastsService: ForecastsService = ForecastsServiceImpl(resolver: self)
 
     static func make(completion: @escaping (AppDependencyResolver) -> ()) {
         let resolver = AppDependencyResolver()
@@ -23,5 +24,11 @@ class AppDependencyResolver {
 extension AppDependencyResolver: StorageResolver {
     func resolveStorage() -> Storage {
         return storage
+    }
+}
+
+extension AppDependencyResolver: ForecastsServiceResolver {
+    func resolveForecastsService() -> ForecastsService {
+        return forecastsService
     }
 }
