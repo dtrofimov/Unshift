@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,9 @@
 		32631FC0236087740089A895 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32631FBF236087740089A895 /* Forecast.swift */; };
 		32631FC52360DF720089A895 /* ManagedForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32631FC42360DF720089A895 /* ManagedForecast.swift */; };
 		32631FC72360DF950089A895 /* PlainForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32631FC62360DF950089A895 /* PlainForecast.swift */; };
+		6944EAFACCDBFE19E63E91CE /* Pods_Unshift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6C5EA451A4D4A0C57F1A16 /* Pods_Unshift.framework */; };
+		807344482AD6A795EFC2DE90 /* Pods_Unshift_UnshiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F86D3928D7D040ED24301E2 /* Pods_Unshift_UnshiftUITests.framework */; };
+		985C5D1C2B17D71516809E1A /* Pods_UnshiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7838D8EF559B0844F91248D /* Pods_UnshiftTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F86D3928D7D040ED24301E2 /* Pods_Unshift_UnshiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unshift_UnshiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		286E4E292361D8F400401C99 /* ForecastsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastsService.swift; sourceTree = "<group>"; };
 		286E4E2E2362F45400401C99 /* ManagedObjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectType.swift; sourceTree = "<group>"; };
 		286E4E302362FAC800401C99 /* NSManagedObjectContext+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Utils.swift"; sourceTree = "<group>"; };
+		2A6C5EA451A4D4A0C57F1A16 /* Pods_Unshift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unshift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32631F80235F096C0089A895 /* Unshift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unshift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32631F83235F096C0089A895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32631F85235F096C0089A895 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +70,13 @@
 		32631FBF236087740089A895 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		32631FC42360DF720089A895 /* ManagedForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedForecast.swift; sourceTree = "<group>"; };
 		32631FC62360DF950089A895 /* PlainForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainForecast.swift; sourceTree = "<group>"; };
+		3CB4FA7FE7CC1CA85FDA5230 /* Pods-Unshift-UnshiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unshift-UnshiftUITests.release.xcconfig"; path = "Target Support Files/Pods-Unshift-UnshiftUITests/Pods-Unshift-UnshiftUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8747FD4DB748154218FA02B8 /* Pods-Unshift-UnshiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unshift-UnshiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-Unshift-UnshiftUITests/Pods-Unshift-UnshiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A8F74F2D3FF8246C1A1E6041 /* Pods-UnshiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnshiftTests.release.xcconfig"; path = "Target Support Files/Pods-UnshiftTests/Pods-UnshiftTests.release.xcconfig"; sourceTree = "<group>"; };
+		B19E968271654E90200FADD3 /* Pods-Unshift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unshift.release.xcconfig"; path = "Target Support Files/Pods-Unshift/Pods-Unshift.release.xcconfig"; sourceTree = "<group>"; };
+		DA9227BEC401216A7B1E4AB8 /* Pods-Unshift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unshift.debug.xcconfig"; path = "Target Support Files/Pods-Unshift/Pods-Unshift.debug.xcconfig"; sourceTree = "<group>"; };
+		F270AFAB8ED3A4487B2C6232 /* Pods-UnshiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnshiftTests.debug.xcconfig"; path = "Target Support Files/Pods-UnshiftTests/Pods-UnshiftTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F7838D8EF559B0844F91248D /* Pods_UnshiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnshiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6944EAFACCDBFE19E63E91CE /* Pods_Unshift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				985C5D1C2B17D71516809E1A /* Pods_UnshiftTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				807344482AD6A795EFC2DE90 /* Pods_Unshift_UnshiftUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +131,8 @@
 				32631F99235F096F0089A895 /* UnshiftTests */,
 				32631FA4235F09700089A895 /* UnshiftUITests */,
 				32631F81235F096C0089A895 /* Products */,
+				D64A3F5F9CFC778ED19F9B4C /* Pods */,
+				E52A877C98BB0B3949A98E7E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -184,6 +201,29 @@
 			path = Forecast;
 			sourceTree = "<group>";
 		};
+		D64A3F5F9CFC778ED19F9B4C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DA9227BEC401216A7B1E4AB8 /* Pods-Unshift.debug.xcconfig */,
+				B19E968271654E90200FADD3 /* Pods-Unshift.release.xcconfig */,
+				8747FD4DB748154218FA02B8 /* Pods-Unshift-UnshiftUITests.debug.xcconfig */,
+				3CB4FA7FE7CC1CA85FDA5230 /* Pods-Unshift-UnshiftUITests.release.xcconfig */,
+				F270AFAB8ED3A4487B2C6232 /* Pods-UnshiftTests.debug.xcconfig */,
+				A8F74F2D3FF8246C1A1E6041 /* Pods-UnshiftTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E52A877C98BB0B3949A98E7E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A6C5EA451A4D4A0C57F1A16 /* Pods_Unshift.framework */,
+				1F86D3928D7D040ED24301E2 /* Pods_Unshift_UnshiftUITests.framework */,
+				F7838D8EF559B0844F91248D /* Pods_UnshiftTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -191,9 +231,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32631FAA235F09700089A895 /* Build configuration list for PBXNativeTarget "Unshift" */;
 			buildPhases = (
+				D47599BD73ACBEB4B66C6853 /* [CP] Check Pods Manifest.lock */,
 				32631F7C235F096C0089A895 /* Sources */,
 				32631F7D235F096C0089A895 /* Frameworks */,
 				32631F7E235F096C0089A895 /* Resources */,
+				4E5AC45C4E493F16E9E8128B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -208,6 +250,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32631FAD235F09700089A895 /* Build configuration list for PBXNativeTarget "UnshiftTests" */;
 			buildPhases = (
+				4FEFEADECB6189B9EA92D879 /* [CP] Check Pods Manifest.lock */,
 				32631F92235F096F0089A895 /* Sources */,
 				32631F93235F096F0089A895 /* Frameworks */,
 				32631F94235F096F0089A895 /* Resources */,
@@ -226,9 +269,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32631FB0235F09700089A895 /* Build configuration list for PBXNativeTarget "UnshiftUITests" */;
 			buildPhases = (
+				2883FD7CABDEAE8DA17E3A11 /* [CP] Check Pods Manifest.lock */,
 				32631F9D235F09700089A895 /* Sources */,
 				32631F9E235F09700089A895 /* Frameworks */,
 				32631F9F235F09700089A895 /* Resources */,
+				6E0C87F6AA7DE93CB5385046 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -308,6 +353,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2883FD7CABDEAE8DA17E3A11 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Unshift-UnshiftUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E5AC45C4E493F16E9E8128B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Unshift/Pods-Unshift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Unshift/Pods-Unshift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Unshift/Pods-Unshift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4FEFEADECB6189B9EA92D879 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UnshiftTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E0C87F6AA7DE93CB5385046 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Unshift-UnshiftUITests/Pods-Unshift-UnshiftUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Unshift-UnshiftUITests/Pods-Unshift-UnshiftUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Unshift-UnshiftUITests/Pods-Unshift-UnshiftUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D47599BD73ACBEB4B66C6853 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Unshift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		32631F7C235F096C0089A895 /* Sources */ = {
@@ -488,6 +636,7 @@
 		};
 		32631FAB235F09700089A895 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA9227BEC401216A7B1E4AB8 /* Pods-Unshift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -505,6 +654,7 @@
 		};
 		32631FAC235F09700089A895 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B19E968271654E90200FADD3 /* Pods-Unshift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -522,6 +672,7 @@
 		};
 		32631FAE235F09700089A895 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F270AFAB8ED3A4487B2C6232 /* Pods-UnshiftTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -543,6 +694,7 @@
 		};
 		32631FAF235F09700089A895 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8F74F2D3FF8246C1A1E6041 /* Pods-UnshiftTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -564,6 +716,7 @@
 		};
 		32631FB1235F09700089A895 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8747FD4DB748154218FA02B8 /* Pods-Unshift-UnshiftUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -583,6 +736,7 @@
 		};
 		32631FB2235F09700089A895 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CB4FA7FE7CC1CA85FDA5230 /* Pods-Unshift-UnshiftUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
