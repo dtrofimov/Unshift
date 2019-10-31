@@ -32,3 +32,14 @@ extension AppDependencyResolver: ForecastsServiceResolver {
         return forecastsService
     }
 }
+
+extension AppDependencyResolver: DemoScreenResolver {
+    func resolveDemoScreen() -> UIViewController {
+        let vc = DemoViewController()
+        let presenter = DemoPresenterImpl(view: vc)
+        presenter.displayForecast(ForecastPreview.forecast1)
+        vc.dataSource = presenter
+        vc.attachForLifetime(presenter)
+        return vc
+    }
+}

@@ -29,10 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
 
         AppDependencyResolver.make { resolver in
-            // TODO: Show the start screen
-            let stubVc = UIViewController()
-            stubVc.view.backgroundColor = .yellow
-            window.rootViewController = stubVc
+            let demoVc = resolver.resolveDemoScreen()
+            window.rootViewController = demoVc
         }
     }
 

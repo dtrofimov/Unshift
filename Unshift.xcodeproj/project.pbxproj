@@ -10,6 +10,16 @@
 		286E4E2A2361D8F400401C99 /* ForecastsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E4E292361D8F400401C99 /* ForecastsService.swift */; };
 		286E4E2F2362F45400401C99 /* ManagedObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E4E2E2362F45400401C99 /* ManagedObjectType.swift */; };
 		286E4E312362FAC800401C99 /* NSManagedObjectContext+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E4E302362FAC800401C99 /* NSManagedObjectContext+Utils.swift */; };
+		286E4E3B23634BE600401C99 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E4E3A23634BE600401C99 /* DemoViewController.swift */; };
+		286E4E3E2367090600401C99 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E4E3D2367090600401C99 /* Label.swift */; };
+		286E4E452367172C00401C99 /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E4E442367172C00401C99 /* Switch.swift */; };
+		286E4E472367246B00401C99 /* CanvasPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E4E462367246B00401C99 /* CanvasPreview.swift */; };
+		286E4E4923672B3D00401C99 /* NSObject+LifetimeAttachments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E4E4823672B3D00401C99 /* NSObject+LifetimeAttachments.swift */; };
+		286E4E4D2368275D00401C99 /* DemoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E4E4C2368275D00401C99 /* DemoPresenter.swift */; };
+		286E4E4F236827BF00401C99 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E4E4E236827BF00401C99 /* Button.swift */; };
+		286E4E572369855900401C99 /* DemoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E4E562369855900401C99 /* DemoScreen.swift */; };
+		286E4E5D236AC66300401C99 /* ViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E4E5C236AC66300401C99 /* ViewWrapper.swift */; };
+		28B87FFC236B17C100C9A440 /* ForecastPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B87FFB236B17C100C9A440 /* ForecastPreview.swift */; };
 		32631F84235F096C0089A895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32631F83235F096C0089A895 /* AppDelegate.swift */; };
 		32631F86235F096C0089A895 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32631F85235F096C0089A895 /* SceneDelegate.swift */; };
 		32631F8D235F096F0089A895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32631F8C235F096F0089A895 /* Assets.xcassets */; };
@@ -50,6 +60,16 @@
 		286E4E292361D8F400401C99 /* ForecastsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastsService.swift; sourceTree = "<group>"; };
 		286E4E2E2362F45400401C99 /* ManagedObjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectType.swift; sourceTree = "<group>"; };
 		286E4E302362FAC800401C99 /* NSManagedObjectContext+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Utils.swift"; sourceTree = "<group>"; };
+		286E4E3A23634BE600401C99 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		286E4E3D2367090600401C99 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		286E4E442367172C00401C99 /* Switch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
+		286E4E462367246B00401C99 /* CanvasPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasPreview.swift; sourceTree = "<group>"; };
+		286E4E4823672B3D00401C99 /* NSObject+LifetimeAttachments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+LifetimeAttachments.swift"; sourceTree = "<group>"; };
+		286E4E4C2368275D00401C99 /* DemoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoPresenter.swift; sourceTree = "<group>"; };
+		286E4E4E236827BF00401C99 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		286E4E562369855900401C99 /* DemoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoScreen.swift; sourceTree = "<group>"; };
+		286E4E5C236AC66300401C99 /* ViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWrapper.swift; sourceTree = "<group>"; };
+		28B87FFB236B17C100C9A440 /* ForecastPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastPreview.swift; sourceTree = "<group>"; };
 		2A6C5EA451A4D4A0C57F1A16 /* Pods_Unshift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unshift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32631F80235F096C0089A895 /* Unshift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unshift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32631F83235F096C0089A895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,8 +140,48 @@
 			children = (
 				286E4E2E2362F45400401C99 /* ManagedObjectType.swift */,
 				286E4E302362FAC800401C99 /* NSManagedObjectContext+Utils.swift */,
+				286E4E462367246B00401C99 /* CanvasPreview.swift */,
+				286E4E4823672B3D00401C99 /* NSObject+LifetimeAttachments.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		286E4E3623634B7900401C99 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				286E4E3C236708F700401C99 /* Controls */,
+				286E4E3F23670BF000401C99 /* Screens */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		286E4E3723634B8500401C99 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				286E4E562369855900401C99 /* DemoScreen.swift */,
+				286E4E3A23634BE600401C99 /* DemoViewController.swift */,
+				286E4E4C2368275D00401C99 /* DemoPresenter.swift */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		286E4E3C236708F700401C99 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				286E4E5C236AC66300401C99 /* ViewWrapper.swift */,
+				286E4E3D2367090600401C99 /* Label.swift */,
+				286E4E442367172C00401C99 /* Switch.swift */,
+				286E4E4E236827BF00401C99 /* Button.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		286E4E3F23670BF000401C99 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				286E4E3723634B8500401C99 /* Demo */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		32631F77235F096C0089A895 = {
@@ -155,6 +215,7 @@
 				286E4E2B2362F40E00401C99 /* Utils */,
 				32631FB3235F0B460089A895 /* Model */,
 				286E4E282361D8DD00401C99 /* Services */,
+				286E4E3623634B7900401C99 /* Presentation */,
 				32631F8C235F096F0089A895 /* Assets.xcassets */,
 				32631F8E235F096F0089A895 /* LaunchScreen.storyboard */,
 				32631F91235F096F0089A895 /* Info.plist */,
@@ -197,6 +258,7 @@
 				32631FBF236087740089A895 /* Forecast.swift */,
 				32631FC42360DF720089A895 /* ManagedForecast.swift */,
 				32631FC62360DF950089A895 /* PlainForecast.swift */,
+				28B87FFB236B17C100C9A440 /* ForecastPreview.swift */,
 			);
 			path = Forecast;
 			sourceTree = "<group>";
@@ -462,17 +524,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				286E4E4D2368275D00401C99 /* DemoPresenter.swift in Sources */,
 				286E4E2A2361D8F400401C99 /* ForecastsService.swift in Sources */,
+				286E4E472367246B00401C99 /* CanvasPreview.swift in Sources */,
 				32631FC72360DF950089A895 /* PlainForecast.swift in Sources */,
+				286E4E4923672B3D00401C99 /* NSObject+LifetimeAttachments.swift in Sources */,
 				32631FB8235F0D7B0089A895 /* Storage.swift in Sources */,
 				286E4E312362FAC800401C99 /* NSManagedObjectContext+Utils.swift in Sources */,
 				32631F84235F096C0089A895 /* AppDelegate.swift in Sources */,
 				32631FC0236087740089A895 /* Forecast.swift in Sources */,
+				286E4E3B23634BE600401C99 /* DemoViewController.swift in Sources */,
+				286E4E572369855900401C99 /* DemoScreen.swift in Sources */,
+				28B87FFC236B17C100C9A440 /* ForecastPreview.swift in Sources */,
 				32631FBA235F0F490089A895 /* Model.swift in Sources */,
+				286E4E452367172C00401C99 /* Switch.swift in Sources */,
 				32631FC52360DF720089A895 /* ManagedForecast.swift in Sources */,
+				286E4E5D236AC66300401C99 /* ViewWrapper.swift in Sources */,
 				286E4E2F2362F45400401C99 /* ManagedObjectType.swift in Sources */,
+				286E4E4F236827BF00401C99 /* Button.swift in Sources */,
 				32631F86235F096C0089A895 /* SceneDelegate.swift in Sources */,
 				32631FBE236031260089A895 /* AppDependencyResolver.swift in Sources */,
+				286E4E3E2367090600401C99 /* Label.swift in Sources */,
 				32631FB6235F0CAC0089A895 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
