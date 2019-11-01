@@ -13,10 +13,6 @@ protocol Storage {
     var container: NSPersistentContainer { get }
 }
 
-protocol StorageResolver {
-    func resolveStorage() -> Storage
-}
-
 class StorageImpl: Storage {
     let container = NSPersistentContainer(name: "unshift", managedObjectModel: .shared)
 

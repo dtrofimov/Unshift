@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
 
         AppDependencyResolver.make { resolver in
-            let demoVc = resolver.resolveDemoScreen()
+            let demoVc = resolver.resolveDemoScreen(forecast: ForecastPreview.forecast1)
             window.rootViewController = demoVc
         }
     }

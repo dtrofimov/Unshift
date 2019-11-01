@@ -10,8 +10,9 @@ import UIKit
 
 class AppDependencyResolver {
     private(set) var storage: Storage!
-    private(set) lazy var forecastsService: ForecastsService = ForecastsServiceImpl(resolver: self)
-    private(set) lazy var forecastVerificationService: ForecastVerificationService = ForecastVerificationServiceImpl(resolver: self)
+    private(set) lazy var dateService: DateService = DateServiceImpl()
+    private(set) lazy var forecastsService: ForecastsService = ForecastsServiceImpl(storage: storage)
+    private(set) lazy var forecastVerificationService: ForecastVerificationService = ForecastVerificationServiceImpl(forecastsService: forecastsService, dateService: dateService)
 
     static func make(completion: @escaping (AppDependencyResolver) -> ()) {
         let resolver = AppDependencyResolver()
@@ -22,34 +23,10 @@ class AppDependencyResolver {
     }
 }
 
-extension AppDependencyResolver: StorageResolver {
-    func resolveStorage() -> Storage {
-        return storage
-    }
-}
-
-extension AppDependencyResolver: ForecastsServiceResolver {
-    func resolveForecastsService() -> ForecastsService {
-        return forecastsService
-    }
-}
-
-extension AppDependencyResolver: CurrentDateResolver {
-    func resolveCurrentDate() -> Date {
-        return Date()
-    }
-}
-
-extension AppDependencyResolver: ForecastVerificationServiceResolver {
-    func resolveForecastVerificationService() -> ForecastVerificationService {
-        return ForecastVerificationServiceImpl(resolver: self)
-    }
-}
-
 extension AppDependencyResolver: DemoScreenResolver {
-    func resolveDemoScreen() -> UIViewController {
+    func resolveDemoScreen(forecast: Forecast) -> UIViewController {
         let vc = DemoViewController()
-        let presenter = DemoPresenterImpl(resolver: self, view: vc, forecast: ForecastPreview.forecast1)
+        let presenter = DemoPresenterImpl(view: vc, forecast: forecast, forecastVerificationService: forecastVerificationService)
         vc.dataSource = presenter
         vc.attachForLifetime(presenter)
         return vc

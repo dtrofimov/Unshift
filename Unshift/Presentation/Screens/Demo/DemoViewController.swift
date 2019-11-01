@@ -116,7 +116,7 @@ import SwiftUI
 struct DemoViewController_Preview: PreviewProvider {
     static var previews: some View {
         let vc = DemoViewController()
-        let presenter = DemoPresenterImpl(resolver: nil!, view: vc, forecast: ForecastPreview.forecast1)
+        let presenter = DemoPresenterImpl(view: vc, forecast: ForecastPreview.forecast1, forecastVerificationService: nil!)
         vc.dataSource = presenter
         return ViewControllerPreview(viewController: vc)
     }

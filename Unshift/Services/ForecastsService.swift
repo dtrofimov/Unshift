@@ -14,19 +14,12 @@ protocol ForecastsService {
     func upsertForecast(_ forecast: Forecast)
 }
 
-protocol ForecastsServiceResolver {
-    func resolveForecastsService() -> ForecastsService
-}
-
 class ForecastsServiceImpl: ForecastsService {
-    typealias Resolver = StorageResolver
-
-    private let resolver: Resolver
-    private lazy var storage: Storage = resolver.resolveStorage()
+    private let storage: Storage
     private var viewContext: NSManagedObjectContext { storage.container.viewContext }
 
-    init(resolver: Resolver) {
-        self.resolver = resolver
+    init(storage: Storage) {
+        self.storage = storage
     }
 
     func getForecasts() -> [Forecast] {

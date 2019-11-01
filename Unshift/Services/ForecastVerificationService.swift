@@ -10,24 +10,20 @@ protocol ForecastVerificationService {
     func verifyForecast(_ forecast: Forecast, outcome: Bool) -> Forecast
 }
 
-protocol ForecastVerificationServiceResolver {
-    func resolveForecastVerificationService() -> ForecastVerificationService
-}
-
 class ForecastVerificationServiceImpl: ForecastVerificationService {
-    typealias Resolver = ForecastsServiceResolver & CurrentDateResolver
-    private let resolver: Resolver
-    lazy var forecastService = resolver.resolveForecastsService()
+    let forecastsService: ForecastsService
+    let dateService: DateService
 
-    init(resolver: Resolver) {
-        self.resolver = resolver
+    init(forecastsService: ForecastsService, dateService: DateService) {
+        self.forecastsService = forecastsService
+        self.dateService = dateService
     }
 
     func verifyForecast(_ forecast: Forecast, outcome: Bool) -> Forecast {
         var verified = PlainForecast(forecast: forecast)
         verified.outcome = outcome
-        verified.verificationDate = resolver.resolveCurrentDate()
-        forecastService.upsertForecast(verified)
+        verified.verificationDate = dateService.currentDate
+        forecastsService.upsertForecast(verified)
         return verified
     }
 }

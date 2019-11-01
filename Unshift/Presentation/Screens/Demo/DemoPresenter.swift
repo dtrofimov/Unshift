@@ -9,17 +9,15 @@
 import Foundation
 
 class DemoPresenterImpl {
-    typealias Resolver = ForecastVerificationServiceResolver
-    private let resolver: Resolver
     private(set) var forecast: Forecast
-    private lazy var forecastVerificationService = resolver.resolveForecastVerificationService()
+    private let forecastVerificationService: ForecastVerificationService
 
     weak var view: DemoView?
 
-    init(resolver: Resolver, view: DemoView, forecast: Forecast) {
-        self.resolver = resolver
+    init(view: DemoView, forecast: Forecast, forecastVerificationService: ForecastVerificationService) {
         self.view = view
         self.forecast = forecast
+        self.forecastVerificationService = forecastVerificationService
     }
 
     fileprivate func verifyForecast(outcome: Bool) {

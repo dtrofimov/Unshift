@@ -9,5 +9,5 @@
 import UIKit
 
 protocol DemoScreenResolver {
-    func resolveDemoScreen() -> UIViewController
+    func resolveDemoScreen(forecast: Forecast) -> UIViewController
 }

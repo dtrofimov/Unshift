@@ -20,7 +20,7 @@
 		286E4E572369855900401C99 /* DemoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E4E562369855900401C99 /* DemoScreen.swift */; };
 		286E4E5D236AC66300401C99 /* ViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E4E5C236AC66300401C99 /* ViewWrapper.swift */; };
 		28B87FFC236B17C100C9A440 /* ForecastPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B87FFB236B17C100C9A440 /* ForecastPreview.swift */; };
-		28B88000236B32DD00C9A440 /* CurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B87FFF236B32DD00C9A440 /* CurrentDate.swift */; };
+		28B88000236B32DD00C9A440 /* DateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B87FFF236B32DD00C9A440 /* DateService.swift */; };
 		28B88002236C5C5B00C9A440 /* ForecastVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B88001236C5C5B00C9A440 /* ForecastVerificationService.swift */; };
 		32631F84235F096C0089A895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32631F83235F096C0089A895 /* AppDelegate.swift */; };
 		32631F86235F096C0089A895 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32631F85235F096C0089A895 /* SceneDelegate.swift */; };
@@ -72,7 +72,7 @@
 		286E4E562369855900401C99 /* DemoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoScreen.swift; sourceTree = "<group>"; };
 		286E4E5C236AC66300401C99 /* ViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWrapper.swift; sourceTree = "<group>"; };
 		28B87FFB236B17C100C9A440 /* ForecastPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastPreview.swift; sourceTree = "<group>"; };
-		28B87FFF236B32DD00C9A440 /* CurrentDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDate.swift; sourceTree = "<group>"; };
+		28B87FFF236B32DD00C9A440 /* DateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateService.swift; sourceTree = "<group>"; };
 		28B88001236C5C5B00C9A440 /* ForecastVerificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastVerificationService.swift; sourceTree = "<group>"; };
 		2A6C5EA451A4D4A0C57F1A16 /* Pods_Unshift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unshift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32631F80235F096C0089A895 /* Unshift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unshift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,7 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				286E4E292361D8F400401C99 /* ForecastsService.swift */,
-				28B87FFF236B32DD00C9A440 /* CurrentDate.swift */,
+				28B87FFF236B32DD00C9A440 /* DateService.swift */,
 				28B88001236C5C5B00C9A440 /* ForecastVerificationService.swift */,
 			);
 			path = Services;
@@ -543,7 +543,7 @@
 				286E4E3B23634BE600401C99 /* DemoViewController.swift in Sources */,
 				286E4E572369855900401C99 /* DemoScreen.swift in Sources */,
 				28B87FFC236B17C100C9A440 /* ForecastPreview.swift in Sources */,
-				28B88000236B32DD00C9A440 /* CurrentDate.swift in Sources */,
+				28B88000236B32DD00C9A440 /* DateService.swift in Sources */,
 				32631FBA235F0F490089A895 /* Model.swift in Sources */,
 				286E4E452367172C00401C99 /* Switch.swift in Sources */,
 				32631FC52360DF720089A895 /* ManagedForecast.swift in Sources */,
