@@ -11,17 +11,17 @@ import SnapKit
 
 enum DemoViewOutcomeMode {
     case showOutcome
-    case showButtonsToResolve
+    case showButtonsToVerify
 }
 
 protocol DemoViewDataSource {
     func showTopContent(titleLabel: Label, descriptionLabel: Label)
     var viewOutcomeMode: DemoViewOutcomeMode { get }
     func showOutcome(label: Label)
-    func showButtonsToResolve(happenedButton: Button, notHappenedButton: Button)
+    func showButtonsToVerify(happenedButton: Button, notHappenedButton: Button)
 }
 
-protocol DemoView {
+protocol DemoView: AnyObject {
     func updateOutcomeMode()
 }
 
@@ -39,7 +39,7 @@ class DemoViewController: UIViewController, DemoView {
     private struct OutcomeView {
         enum State {
             case outcome(label: WrappedUILabel)
-            case buttonsToResolve(happened: WrappedUIButton, notHappened: WrappedUIButton)
+            case buttonsToVerify(happened: WrappedUIButton, notHappened: WrappedUIButton)
         }
         let state: State
         let container: UIView
@@ -81,7 +81,7 @@ class DemoViewController: UIViewController, DemoView {
             if oldOutcomeView.outcomeMode == outcomeMode {
                 return
             } else {
-                stackView.removeArrangedSubview(oldOutcomeView.container)
+                oldOutcomeView.container.removeFromSuperview()
                 outcomeView = nil
             }
         }
@@ -94,12 +94,12 @@ class DemoViewController: UIViewController, DemoView {
                 return OutcomeView(state: .outcome(label: label),
                                       container: label,
                                       outcomeMode: outcomeMode)
-            case .showButtonsToResolve:
+            case .showButtonsToVerify:
                 let happenedButton = WrappedUIButton(type: .system)
                 let notHappenedButton = WrappedUIButton(type: .system)
-                dataSource.showButtonsToResolve(happenedButton: happenedButton.wrapper, notHappenedButton: notHappenedButton.wrapper)
+                dataSource.showButtonsToVerify(happenedButton: happenedButton.wrapper, notHappenedButton: notHappenedButton.wrapper)
                 let container = UIStackView(arrangedSubviews: [happenedButton, notHappenedButton])
-                return OutcomeView(state: .buttonsToResolve(happened: happenedButton, notHappened: notHappenedButton),
+                return OutcomeView(state: .buttonsToVerify(happened: happenedButton, notHappened: notHappenedButton),
                                       container: container,
                                       outcomeMode: outcomeMode)
             }
@@ -116,8 +116,7 @@ import SwiftUI
 struct DemoViewController_Preview: PreviewProvider {
     static var previews: some View {
         let vc = DemoViewController()
-        let presenter = DemoPresenterImpl(view: vc)
-        presenter.displayForecast(ForecastPreview.forecast1)
+        let presenter = DemoPresenterImpl(resolver: nil!, view: vc, forecast: ForecastPreview.forecast1)
         vc.dataSource = presenter
         return ViewControllerPreview(viewController: vc)
     }

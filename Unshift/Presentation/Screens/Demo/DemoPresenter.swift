@@ -8,22 +8,23 @@
 
 import Foundation
 
-protocol DemoPresenter {
-    func displayForecast(_ forecast: Forecast)
-}
+class DemoPresenterImpl {
+    typealias Resolver = ForecastVerificationServiceResolver
+    private let resolver: Resolver
+    private(set) var forecast: Forecast
+    private lazy var forecastVerificationService = resolver.resolveForecastVerificationService()
 
-class DemoPresenterImpl: DemoPresenter {
-    private(set) var forecast: Forecast!
+    weak var view: DemoView?
 
-    var view: DemoView
-
-    init(view: DemoView) {
+    init(resolver: Resolver, view: DemoView, forecast: Forecast) {
+        self.resolver = resolver
         self.view = view
+        self.forecast = forecast
     }
 
-    func displayForecast(_ forecast: Forecast) {
-        self.forecast = forecast
-        view.updateOutcomeMode()
+    fileprivate func verifyForecast(outcome: Bool) {
+        forecast = forecastVerificationService.verifyForecast(forecast, outcome: outcome)
+        view?.updateOutcomeMode()
     }
 }
 
@@ -34,21 +35,21 @@ extension DemoPresenterImpl: DemoViewDataSource {
     }
 
     var viewOutcomeMode: DemoViewOutcomeMode {
-        forecast.outcome == nil ? .showButtonsToResolve : .showOutcome
+        forecast.outcome == nil ? .showButtonsToVerify : .showOutcome
     }
 
     func showOutcome(label: Label) {
         label.text = forecast.outcome == true ? "Happened" : "Not happened"
     }
 
-    func showButtonsToResolve(happenedButton: Button, notHappenedButton: Button) {
+    func showButtonsToVerify(happenedButton: Button, notHappenedButton: Button) {
         happenedButton.title = "Happened"
-        happenedButton.tapHandler = {
-            NSLog("Happened")
+        happenedButton.tapHandler = { [weak self] in
+            self?.verifyForecast(outcome: true)
         }
         notHappenedButton.title = "Not Happened"
-        notHappenedButton.tapHandler = {
-            NSLog("Not happened")
+        notHappenedButton.tapHandler = { [weak self] in
+            self?.verifyForecast(outcome: false)
         }
     }
 }

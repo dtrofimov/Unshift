@@ -11,6 +11,7 @@ import UIKit
 class AppDependencyResolver {
     private(set) var storage: Storage!
     private(set) lazy var forecastsService: ForecastsService = ForecastsServiceImpl(resolver: self)
+    private(set) lazy var forecastVerificationService: ForecastVerificationService = ForecastVerificationServiceImpl(resolver: self)
 
     static func make(completion: @escaping (AppDependencyResolver) -> ()) {
         let resolver = AppDependencyResolver()
@@ -33,11 +34,22 @@ extension AppDependencyResolver: ForecastsServiceResolver {
     }
 }
 
+extension AppDependencyResolver: CurrentDateResolver {
+    func resolveCurrentDate() -> Date {
+        return Date()
+    }
+}
+
+extension AppDependencyResolver: ForecastVerificationServiceResolver {
+    func resolveForecastVerificationService() -> ForecastVerificationService {
+        return ForecastVerificationServiceImpl(resolver: self)
+    }
+}
+
 extension AppDependencyResolver: DemoScreenResolver {
     func resolveDemoScreen() -> UIViewController {
         let vc = DemoViewController()
-        let presenter = DemoPresenterImpl(view: vc)
-        presenter.displayForecast(ForecastPreview.forecast1)
+        let presenter = DemoPresenterImpl(resolver: self, view: vc, forecast: ForecastPreview.forecast1)
         vc.dataSource = presenter
         vc.attachForLifetime(presenter)
         return vc
