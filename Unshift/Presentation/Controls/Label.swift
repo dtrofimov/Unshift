@@ -8,9 +8,7 @@
 
 import UIKit
 
-protocol Label: AnyObject {
-    var text: String { get set }
-}
+typealias Label = KeepingText
 
 class WrappedUILabel: UILabel {
     private class Wrapper: ViewWrapper<WrappedUILabel>, Label {

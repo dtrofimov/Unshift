@@ -40,7 +40,7 @@ extension DemoPresenterImpl: DemoViewDataSource {
         label.text = forecast.outcome == true ? "Happened" : "Not happened"
     }
 
-    func showButtonsToVerify(happenedButton: Button, notHappenedButton: Button) {
+    func showButtonsToVerify(happenedButton: Button & KeepingTitle, notHappenedButton: Button & KeepingTitle) {
         happenedButton.title = "Happened"
         happenedButton.tapHandler = { [weak self] in
             self?.verifyForecast(outcome: true)

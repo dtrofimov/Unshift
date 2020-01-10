@@ -18,7 +18,7 @@ protocol DemoViewDataSource {
     func showTopContent(titleLabel: Label, descriptionLabel: Label)
     var viewOutcomeMode: DemoViewOutcomeMode { get }
     func showOutcome(label: Label)
-    func showButtonsToVerify(happenedButton: Button, notHappenedButton: Button)
+    func showButtonsToVerify(happenedButton: Button & KeepingTitle, notHappenedButton: Button & KeepingTitle)
 }
 
 protocol DemoView: AnyObject {
