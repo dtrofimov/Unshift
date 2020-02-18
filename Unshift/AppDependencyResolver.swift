@@ -26,8 +26,8 @@ class AppDependencyResolver {
 extension AppDependencyResolver: DemoScreenResolver {
     func resolveDemoScreen(forecast: Forecast) -> UIViewController {
         let vc = DemoViewController()
-        let presenter = DemoPresenterImpl(view: vc, forecast: forecast, forecastVerificationService: forecastVerificationService)
-        vc.dataSource = presenter
+        let presenter = DemoPresenterImpl(forecast: forecast, forecastVerificationService: forecastVerificationService)
+        vc.model = presenter.viewModel
         vc.attachForLifetime(presenter)
         return vc
     }

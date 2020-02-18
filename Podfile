@@ -7,6 +7,9 @@ target 'Unshift' do
 
   # Pods for Unshift
   pod 'SnapKit'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Then'
 
   target 'UnshiftTests' do
     inherit! :search_paths

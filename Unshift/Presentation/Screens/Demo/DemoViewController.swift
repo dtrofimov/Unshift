@@ -7,105 +7,103 @@
 //
 
 import UIKit
-import SnapKit
+import RxCocoa
+import RxSwift
+import Then
 
-enum DemoViewOutcomeMode {
-    case showOutcome
-    case showButtonsToVerify
-}
+struct DemoViewModel: Then {
+    var title: Driver<String> = .never()
+    var description: Driver<String> = .never()
 
-protocol DemoViewDataSource {
-    func showTopContent(titleLabel: Label, descriptionLabel: Label)
-    var viewOutcomeMode: DemoViewOutcomeMode { get }
-    func showOutcome(label: Label)
-    func showButtonsToVerify(happenedButton: Button & KeepingTitle, notHappenedButton: Button & KeepingTitle)
-}
-
-protocol DemoView: AnyObject {
-    func updateOutcomeMode()
-}
-
-class DemoViewController: UIViewController, DemoView {
-    var dataSource: DemoViewDataSource?
-
-    private lazy var titleLabel = WrappedUILabel()
-    private lazy var descriptionLabel = WrappedUILabel()
-    private lazy var stackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        return stack
-    }()
-
-    private struct OutcomeView {
-        enum State {
-            case outcome(label: WrappedUILabel)
-            case buttonsToVerify(happened: WrappedUIButton, notHappened: WrappedUIButton)
-        }
-        let state: State
-        let container: UIView
-        let outcomeMode: DemoViewOutcomeMode
+    enum OutcomeMode {
+        case string
+        case twoButtons
     }
-    private var outcomeView: OutcomeView?
+    var outcomeMode: Driver<OutcomeMode> = .never()
+    var outcomeText: Driver<String?> = .never()
 
+    struct OutcomeButton: Then {
+        var title: Driver<String> = .never()
+        var handler: Driver<(() -> ())?> = .never()
+    }
+    var leftOutcomeButton: OutcomeButton = .init()
+    var rightOutcomeButton: OutcomeButton = .init()
+}
+
+class DemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
     }
 
-    private func setupSubviews() {
+    var model = DemoViewModel()
+
+    func setupSubviews() {
+        let model = self.model
         view.backgroundColor = .white
+        view.addSubviewAndLayoutToEdges(UIScrollView().then {
+            $0.addSubviewAndLayoutToEdges(UIStackView().then {
+                $0.axis = .vertical
 
-        let scrollView = UIScrollView()
-        view.addSubview(scrollView)
-        scrollView.snp.makeConstraints {
-            $0.edges.equalTo(view.safeAreaLayoutGuide)
-        }
+                // title
+                $0.addArrangedSubview(UILabel().then {
+                    _ = model.title.asObservable()
+                        .takeUntil($0.rx.deallocated)
+                        .map { $0 }
+                        .bind(to: $0.rx.text)
+                })
 
-        scrollView.addSubview(stackView)
-        stackView.snp.makeConstraints { $0.edges.equalToSuperview() }
+                // description
+                $0.addArrangedSubview(UILabel().then {
+                    _ = model.description.asObservable()
+                        .takeUntil($0.rx.deallocated)
+                        .map { $0 }
+                        .bind(to: $0.rx.text)
+                })
 
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(descriptionLabel)
-        dataSource?.showTopContent(titleLabel: titleLabel.wrapper, descriptionLabel: descriptionLabel.wrapper)
+                // outcome
+                $0.addArrangedSubview(UIView().then { container in
+                    weak var content: UIView! {
+                        didSet {
+                            guard oldValue !== content else { return }
+                            oldValue?.removeFromSuperview()
+                            container.addSubviewAndLayoutToEdges(content)
+                        }
+                    }
 
-        updateOutcomeMode()
-    }
-
-    func updateOutcomeMode() {
-        guard self.isViewLoaded,
-            let dataSource = dataSource
-            else { return }
-        let outcomeMode = dataSource.viewOutcomeMode
-
-        if let oldOutcomeView = outcomeView {
-            if oldOutcomeView.outcomeMode == outcomeMode {
-                return
-            } else {
-                oldOutcomeView.container.removeFromSuperview()
-                outcomeView = nil
-            }
-        }
-
-        let outcomeView: OutcomeView = {
-            switch outcomeMode {
-            case .showOutcome:
-                let label = WrappedUILabel()
-                dataSource.showOutcome(label: label.wrapper)
-                return OutcomeView(state: .outcome(label: label),
-                                      container: label,
-                                      outcomeMode: outcomeMode)
-            case .showButtonsToVerify:
-                let happenedButton = WrappedUIButton(type: .system)
-                let notHappenedButton = WrappedUIButton(type: .system)
-                dataSource.showButtonsToVerify(happenedButton: happenedButton.wrapper, notHappenedButton: notHappenedButton.wrapper)
-                let container = UIStackView(arrangedSubviews: [happenedButton, notHappenedButton])
-                return OutcomeView(state: .buttonsToVerify(happened: happenedButton, notHappened: notHappenedButton),
-                                      container: container,
-                                      outcomeMode: outcomeMode)
-            }
-        }()
-        stackView.addArrangedSubview(outcomeView.container)
-        self.outcomeView = outcomeView
+                    _ = model.outcomeMode.asObservable()
+                        .takeUntil(container.rx.deallocated)
+                        .distinctUntilChanged()
+                        .bind {
+                            switch $0 {
+                            case .string:
+                                content = UILabel().then {
+                                    _ = model.outcomeText.asObservable()
+                                        .takeUntil($0.rx.deallocated)
+                                        .map { $0 }
+                                        .bind(to: $0.rx.text)
+                                }
+                            case .twoButtons:
+                                content = UIStackView().then {
+                                    for model in [model.leftOutcomeButton, model.rightOutcomeButton] {
+                                        $0.addArrangedSubview(UIButton(type: .system).then {
+                                            _ = model.title.asObservable()
+                                                .takeUntil($0.rx.deallocated)
+                                                .map { $0 }
+                                                .bind(to: $0.rx.title())
+                                            _ = $0.rx.tap
+                                                .withLatestFrom(model.handler)
+                                                .bind {
+                                                    $0?()
+                                            }
+                                        })
+                                    }
+                                }
+                            }
+                    }
+                })
+            })
+        })
     }
 }
 
@@ -116,8 +114,8 @@ import SwiftUI
 struct DemoViewController_Preview: PreviewProvider {
     static var previews: some View {
         let vc = DemoViewController()
-        let presenter = DemoPresenterImpl(view: vc, forecast: ForecastPreview.forecast1, forecastVerificationService: nil!)
-        vc.dataSource = presenter
+        let presenter = DemoPresenterImpl(forecast: ForecastPreview.forecast1, forecastVerificationService: nil!)
+        vc.model = presenter.viewModel
         return ViewControllerPreview(viewController: vc)
     }
 }
