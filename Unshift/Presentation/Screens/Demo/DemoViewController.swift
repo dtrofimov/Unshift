@@ -11,23 +11,26 @@ import RxCocoa
 import RxSwift
 import Then
 
-struct DemoViewModel: Then {
-    var title: Driver<String> = .never()
-    var description: Driver<String> = .never()
+enum DemoViewOutcomeMode {
+    case string
+    case twoButtons
+}
 
-    enum OutcomeMode {
-        case string
-        case twoButtons
-    }
-    var outcomeMode: Driver<OutcomeMode> = .never()
-    var outcomeText: Driver<String?> = .never()
+protocol DemoViewOutcomeButtonModel {
+    var title: Driver<String> { get }
+    var handler: Driver<(() -> ())?> { get }
+}
 
-    struct OutcomeButton: Then {
-        var title: Driver<String> = .never()
-        var handler: Driver<(() -> ())?> = .never()
-    }
-    var leftOutcomeButton: OutcomeButton = .init()
-    var rightOutcomeButton: OutcomeButton = .init()
+protocol DemoViewModel {
+    typealias OutcomeMode = DemoViewOutcomeMode
+    typealias OutcomeButtonModel = DemoViewOutcomeButtonModel
+
+    var title: Driver<String> { get }
+    var description: Driver<String> { get }
+    var outcomeMode: Driver<OutcomeMode> { get }
+    var outcomeText: Driver<String?> { get }
+    var leftOutcomeButton: OutcomeButtonModel { get }
+    var rightOutcomeButton: OutcomeButtonModel { get }
 }
 
 class DemoViewController: UIViewController {
@@ -36,10 +39,11 @@ class DemoViewController: UIViewController {
         setupSubviews()
     }
 
-    var model = DemoViewModel()
+    typealias Model = DemoViewModel
+    var model: Model!
 
     func setupSubviews() {
-        let model = self.model
+        let model = self.model!
         view.backgroundColor = .white
         view.addSubviewAndLayoutToEdges(UIScrollView().then {
             $0.addSubviewAndLayoutToEdges(UIStackView().then {
@@ -114,8 +118,7 @@ import SwiftUI
 struct DemoViewController_Preview: PreviewProvider {
     static var previews: some View {
         let vc = DemoViewController()
-        let presenter = DemoPresenterImpl(forecast: ForecastPreview.forecast1, forecastVerificationService: nil!)
-        vc.model = presenter.viewModel
+        vc.model = DemoPresenterImpl(forecast: ForecastPreview.forecast1, forecastVerificationService: nil!)
         return ViewControllerPreview(viewController: vc)
     }
 }
