@@ -734,7 +734,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F270AFAB8ED3A4487B2C6232 /* Pods-UnshiftTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = UnshiftTests/Info.plist;
@@ -756,7 +755,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A8F74F2D3FF8246C1A1E6041 /* Pods-UnshiftTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = UnshiftTests/Info.plist;
@@ -778,7 +776,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8747FD4DB748154218FA02B8 /* Pods-Unshift-UnshiftUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = UnshiftUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -798,7 +795,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3CB4FA7FE7CC1CA85FDA5230 /* Pods-Unshift-UnshiftUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = UnshiftUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
