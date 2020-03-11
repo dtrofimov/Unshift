@@ -51,60 +51,61 @@ class DemoViewController: UIViewController {
 
                 // title
                 $0.addArrangedSubview(UILabel().then {
-                    _ = model.title.asObservable()
-                        .takeUntil($0.rx.deallocated)
+                    model.title.asObservable()
                         .map { $0 }
                         .bind(to: $0.rx.text)
+                        .dispose(with: $0)
                 })
 
                 // description
                 $0.addArrangedSubview(UILabel().then {
-                    _ = model.description.asObservable()
-                        .takeUntil($0.rx.deallocated)
+                    model.description.asObservable()
                         .map { $0 }
                         .bind(to: $0.rx.text)
+                        .dispose(with: $0)
                 })
 
                 // outcome
                 $0.addArrangedSubview(UIView().then { container in
+                    weak var weakContainer = container
                     weak var content: UIView! {
                         didSet {
                             guard oldValue !== content else { return }
                             oldValue?.removeFromSuperview()
-                            container.addSubviewAndLayoutToEdges(content)
+                            weakContainer?.addSubviewAndLayoutToEdges(content)
                         }
                     }
 
-                    _ = model.outcomeMode.asObservable()
-                        .takeUntil(container.rx.deallocated)
+                    model.outcomeMode.asObservable()
                         .distinctUntilChanged()
                         .bind {
                             switch $0 {
                             case .string:
                                 content = UILabel().then {
-                                    _ = model.outcomeText.asObservable()
+                                    model.outcomeText.asObservable()
                                         .takeUntil($0.rx.deallocated)
                                         .map { $0 }
                                         .bind(to: $0.rx.text)
+                                        .dispose(with: $0)
                                 }
                             case .twoButtons:
                                 content = UIStackView().then {
                                     for model in [model.leftOutcomeButton, model.rightOutcomeButton] {
                                         $0.addArrangedSubview(UIButton(type: .system).then {
-                                            _ = model.title.asObservable()
-                                                .takeUntil($0.rx.deallocated)
+                                            model.title.asObservable()
                                                 .map { $0 }
                                                 .bind(to: $0.rx.title())
-                                            _ = $0.rx.tap
+                                                .dispose(with: $0)
+                                            $0.rx.tap
                                                 .withLatestFrom(model.handler)
-                                                .bind {
-                                                    $0?()
-                                            }
+                                                .bind { $0?() }
+                                                .dispose(with: $0)
                                         })
                                     }
                                 }
                             }
                     }
+                    .dispose(with: container)
                 })
             })
         })

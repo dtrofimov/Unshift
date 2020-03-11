@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2846C07323F567FD00FCDD43 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846C07223F567FD00FCDD43 /* UIView+Extensions.swift */; };
+		28545A322418E3D4000A0B87 /* Disposable+DisposeWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28545A312418E3D4000A0B87 /* Disposable+DisposeWith.swift */; };
 		286E4E2A2361D8F400401C99 /* ForecastsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E4E292361D8F400401C99 /* ForecastsService.swift */; };
 		286E4E2F2362F45400401C99 /* ManagedObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E4E2E2362F45400401C99 /* ManagedObjectType.swift */; };
 		286E4E312362FAC800401C99 /* NSManagedObjectContext+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E4E302362FAC800401C99 /* NSManagedObjectContext+Utils.swift */; };
@@ -57,6 +58,7 @@
 /* Begin PBXFileReference section */
 		1F86D3928D7D040ED24301E2 /* Pods_Unshift_UnshiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unshift_UnshiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2846C07223F567FD00FCDD43 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		28545A312418E3D4000A0B87 /* Disposable+DisposeWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Disposable+DisposeWith.swift"; sourceTree = "<group>"; };
 		286E4E292361D8F400401C99 /* ForecastsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastsService.swift; sourceTree = "<group>"; };
 		286E4E2E2362F45400401C99 /* ManagedObjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectType.swift; sourceTree = "<group>"; };
 		286E4E302362FAC800401C99 /* NSManagedObjectContext+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Utils.swift"; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				286E4E462367246B00401C99 /* CanvasPreview.swift */,
 				286E4E4823672B3D00401C99 /* NSObject+LifetimeAttachments.swift */,
 				2846C07223F567FD00FCDD43 /* UIView+Extensions.swift */,
+				28545A312418E3D4000A0B87 /* Disposable+DisposeWith.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				32631FC52360DF720089A895 /* ManagedForecast.swift in Sources */,
 				286E4E2F2362F45400401C99 /* ManagedObjectType.swift in Sources */,
 				32631F86235F096C0089A895 /* SceneDelegate.swift in Sources */,
+				28545A322418E3D4000A0B87 /* Disposable+DisposeWith.swift in Sources */,
 				32631FBE236031260089A895 /* AppDependencyResolver.swift in Sources */,
 				32631FB6235F0CAC0089A895 /* Model.xcdatamodeld in Sources */,
 			);
@@ -705,6 +709,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D TRACE_RESOURCES";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dmitriitrofimov.Unshift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
